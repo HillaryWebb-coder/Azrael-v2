@@ -1,0 +1,7 @@
+C:/Users/hilla/STM32CubeIDE/Azrael/Azrael v2/Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
+C:/Users/hilla/STM32CubeIDE/Azrael/Azrael v2/Drivers/CMSIS/Include/core_cm4.h:1814:22:__NVIC_SetPriority	2
+../Src/spi.c:14:6:spi1_init	1
+../Src/spi.c:38:6:spi1_transmit	5
+../Src/spi.c:54:6:spi1_receive	3
+../Src/spi.c:63:6:spi_dma_init	2
+../Src/spi.c:77:6:spi_dma_transmit	1

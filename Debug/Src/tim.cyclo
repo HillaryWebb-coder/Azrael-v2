@@ -1,0 +1,5 @@
+C:/Users/hilla/STM32CubeIDE/Azrael/Azrael v2/Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
+C:/Users/hilla/STM32CubeIDE/Azrael/Azrael v2/Drivers/CMSIS/Include/core_cm4.h:1814:22:__NVIC_SetPriority	2
+../Src/tim.c:13:6:tim2_1hz_init	2
+../Src/tim.c:28:6:TIM2_IRQHandler	2
+../Src/tim.c:35:6:delay_ms	2

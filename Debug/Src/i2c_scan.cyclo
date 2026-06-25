@@ -1,0 +1,6 @@
+../Src/i2c_scan.c:32:13:itm_print	3
+../Src/i2c_scan.c:40:13:itm_print_hex	1
+../Src/i2c_scan.c:50:6:i2c1_scan_init	1
+../Src/i2c_scan.c:82:16:wait_flag	12
+../Src/i2c_scan.c:100:16:i2c_probe	8
+../Src/i2c_scan.c:144:6:i2c_scan	5

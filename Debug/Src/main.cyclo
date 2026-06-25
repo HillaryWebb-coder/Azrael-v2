@@ -1,0 +1,10 @@
+../Src/main.c:46:13:initialise_fpu	1
+../Src/main.c:52:6:errorHandler	1
+../Src/main.c:67:5:main	11
+../Src/main.c:153:6:vHomeTask	2
+../Src/main.c:212:6:vDisplayTask	6
+../Src/main.c:241:6:vReadNunchuckTask	5
+../Src/main.c:268:6:vDisplayRTCTask	1
+../Src/main.c:297:6:vMenuTask	17
+../Src/main.c:407:6:vApplicationStackOverflowHook	1
+../Src/main.c:420:6:vApplicationMallocFailedHook	1

@@ -1,0 +1,6 @@
+../Src/tasks/task_air_race.c:39:6:vInvulnerabilityTimerCallback	2
+../Src/tasks/task_air_race.c:45:13:init_game	2
+../Src/tasks/task_air_race.c:65:13:update_obstacles	2
+../Src/tasks/task_air_race.c:73:13:check_collision	9
+../Src/tasks/task_air_race.c:103:13:game_over_screen	2
+../Src/tasks/task_air_race.c:144:6:vAirRace	11

@@ -1,0 +1,9 @@
+../Inc/display.h:54:20:display_set_pixel	3
+../Src/display.c:17:6:display_flush	1
+../Src/display.c:31:6:display_fill	4
+../Src/display.c:43:6:display_fill_rect	7
+../Src/display.c:55:6:display_draw_rect	1
+../Src/display.c:63:6:display_draw_line	7
+../Src/display.c:77:6:display_write_string	8
+../Src/display.c:99:6:display_draw_image	7
+../Src/display.c:111:6:display_draw_circle	6

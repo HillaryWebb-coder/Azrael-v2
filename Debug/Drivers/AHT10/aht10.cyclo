@@ -1,0 +1,2 @@
+../Drivers/AHT10/aht10.c:17:6:aht10_init	3
+../Drivers/AHT10/aht10.c:49:13:aht10_read	3

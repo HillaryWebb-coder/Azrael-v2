@@ -1,0 +1,15 @@
+../Src/rtc.c:18:13:rtc_set_asynch_prescaler	1
+../Src/rtc.c:23:13:rtc_set_synch_prescaler	1
+../Src/rtc.c:28:6:_rtc_enable_init_mode	1
+../Src/rtc.c:32:6:_rtc_disable_init_mode	1
+../Src/rtc.c:36:9:_rtc_isActiveFlag_init	1
+../Src/rtc.c:40:9:_rtc_isActiveFlag_rs	1
+../Src/rtc.c:44:16:rtc_init_seq	2
+../Src/rtc.c:54:16:wait_for_synchro	2
+../Src/rtc.c:64:16:exit_init_seq	1
+../Src/rtc.c:72:16:decimal_to_bcd	1
+../Src/rtc.c:76:16:bcd_to_decimal	1
+../Src/rtc.c:80:13:rtc_date_config	1
+../Src/rtc.c:84:13:rtc_time_config	1
+../Src/rtc.c:88:6:rtc_init	2
+../Src/rtc.c:120:6:rtc_get_dateTime	2

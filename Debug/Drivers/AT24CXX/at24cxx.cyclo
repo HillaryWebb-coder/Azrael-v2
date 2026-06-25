@@ -1,0 +1,2 @@
+../Drivers/AT24CXX/at24cxx.c:6:6:at_page_write	1
+../Drivers/AT24CXX/at24cxx.c:16:6:at_read_data	1
