@@ -19,5 +19,6 @@ void vMenuTask(void *pvParameters);
 void vPingPongTask(void *pvParameters);
 void vAirRace(void * pvParameters);
 void vSettingsTask(void * pvParameters);
+void vUpdateDateTimeTask(void * pvParameters);
 
 #endif

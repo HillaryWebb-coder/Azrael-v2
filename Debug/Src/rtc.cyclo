@@ -11,5 +11,8 @@
 ../Src/rtc.c:76:16:bcd_to_decimal	1
 ../Src/rtc.c:80:13:rtc_date_config	1
 ../Src/rtc.c:84:13:rtc_time_config	1
-../Src/rtc.c:88:6:rtc_init	2
-../Src/rtc.c:120:6:rtc_get_dateTime	2
+../Src/rtc.c:88:6:rtc_init	3
+../Src/rtc.c:119:6:rtc_get_dateTime	2
+../Src/rtc.c:137:9:calcWeekday	3
+../Src/rtc.c:147:6:rtc_set_date	1
+../Src/rtc.c:157:6:rtc_set_time	1

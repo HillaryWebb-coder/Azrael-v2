@@ -1,9 +1,9 @@
 ../Src/gpio.c:15:6:init_leds	1
-../Src/gpio.c:34:6:led_on	1
-../Src/gpio.c:38:6:led_off	1
-../Src/gpio.c:42:6:disp_cs_high	1
-../Src/gpio.c:46:6:disp_cs_low	1
-../Src/gpio.c:50:6:disp_dc_high	1
-../Src/gpio.c:54:6:disp_dc_low	1
-../Src/gpio.c:58:6:disp_rst_high	1
-../Src/gpio.c:62:6:disp_rst_low	1
+../Src/gpio.c:37:6:led_on	1
+../Src/gpio.c:41:6:led_off	1
+../Src/gpio.c:45:6:disp_cs_high	1
+../Src/gpio.c:49:6:disp_cs_low	1
+../Src/gpio.c:53:6:disp_dc_high	1
+../Src/gpio.c:57:6:disp_dc_low	1
+../Src/gpio.c:61:6:disp_rst_high	1
+../Src/gpio.c:65:6:disp_rst_low	1

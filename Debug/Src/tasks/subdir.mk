@@ -5,16 +5,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/tasks/dateTimeTask.c \
 ../Src/tasks/settings.c \
 ../Src/tasks/task_air_race.c \
 ../Src/tasks/task_pingpong.c 
 
 OBJS += \
+./Src/tasks/dateTimeTask.o \
 ./Src/tasks/settings.o \
 ./Src/tasks/task_air_race.o \
 ./Src/tasks/task_pingpong.o 
 
 C_DEPS += \
+./Src/tasks/dateTimeTask.d \
 ./Src/tasks/settings.d \
 ./Src/tasks/task_air_race.d \
 ./Src/tasks/task_pingpong.d 
@@ -27,7 +30,7 @@ Src/tasks/%.o Src/tasks/%.su Src/tasks/%.cyclo: ../Src/tasks/%.c Src/tasks/subdi
 clean: clean-Src-2f-tasks
 
 clean-Src-2f-tasks:
-	-$(RM) ./Src/tasks/settings.cyclo ./Src/tasks/settings.d ./Src/tasks/settings.o ./Src/tasks/settings.su ./Src/tasks/task_air_race.cyclo ./Src/tasks/task_air_race.d ./Src/tasks/task_air_race.o ./Src/tasks/task_air_race.su ./Src/tasks/task_pingpong.cyclo ./Src/tasks/task_pingpong.d ./Src/tasks/task_pingpong.o ./Src/tasks/task_pingpong.su
+	-$(RM) ./Src/tasks/dateTimeTask.cyclo ./Src/tasks/dateTimeTask.d ./Src/tasks/dateTimeTask.o ./Src/tasks/dateTimeTask.su ./Src/tasks/settings.cyclo ./Src/tasks/settings.d ./Src/tasks/settings.o ./Src/tasks/settings.su ./Src/tasks/task_air_race.cyclo ./Src/tasks/task_air_race.d ./Src/tasks/task_air_race.o ./Src/tasks/task_air_race.su ./Src/tasks/task_pingpong.cyclo ./Src/tasks/task_pingpong.d ./Src/tasks/task_pingpong.o ./Src/tasks/task_pingpong.su
 
 .PHONY: clean-Src-2f-tasks
 

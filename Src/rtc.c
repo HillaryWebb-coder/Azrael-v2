@@ -89,32 +89,31 @@ void rtc_init(void){
 	RCC->APB1ENR |= RCC_APB1ENR_PWREN;
 	PWR->CR |= PWR_CR_DBP;
 
-	RCC->BDCR |= RCC_BDCR_BDRST;
-	RCC->BDCR &= ~RCC_BDCR_BDRST;
+	if(!(RTC->ISR & RTC_ISR_INITS)){
+		RCC->BDCR |= RCC_BDCR_BDRST;
+		RCC->BDCR &= ~RCC_BDCR_BDRST;
 
-	RCC->BDCR |= RCC_BDCR_LSEON;
-	while(!(RCC->BDCR & RCC_BDCR_LSERDY));
+		RCC->BDCR |= RCC_BDCR_LSEON;
+		while(!(RCC->BDCR & RCC_BDCR_LSERDY));
 
-	// set rtc clock source to LSE & enable rtc
-	RCC->BDCR &= ~RCC_BDCR_RTCSEL_Msk;
-	RCC->BDCR |= RCC_BDCR_RTCSEL_0;
-	RCC->BDCR |= RCC_BDCR_RTCEN;
+		// set rtc clock source to LSE & enable rtc
+		RCC->BDCR &= ~RCC_BDCR_RTCSEL_Msk;
+		RCC->BDCR |= RCC_BDCR_RTCSEL_0;
+		RCC->BDCR |= RCC_BDCR_RTCEN;
 
-	RTC->WPR = RTC_WPR_KEY_1;
-	RTC->WPR = RTC_WPR_KEY_2;
+		RTC->WPR = RTC_WPR_KEY_1;
+		RTC->WPR = RTC_WPR_KEY_2;
 
-	rtc_init_seq();
-
-	rtc_date_config(1, 16, 6, 26);
-	rtc_time_config(1, 9, 19, 00);
+		rtc_init_seq();
 
 
-	RTC->CR |= RTC_CR_FMT;
-	rtc_set_asynch_prescaler(ASYNC_PRESCALER);
-	rtc_set_synch_prescaler(SYNC_PRESCALER);
+		RTC->CR |= RTC_CR_FMT;
+		rtc_set_asynch_prescaler(ASYNC_PRESCALER);
+		rtc_set_synch_prescaler(SYNC_PRESCALER);
 
-	exit_init_seq();
-	RTC->WPR = RTC_WPR_KEY;
+		exit_init_seq();
+		RTC->WPR = RTC_WPR_KEY;
+	}
 }
 
 void rtc_get_dateTime(struct tm *t){
@@ -134,3 +133,34 @@ void rtc_get_dateTime(struct tm *t){
 	t->tm_yday = 0;
 	t->tm_isdst = 0;
 }
+
+uint8_t calcWeekday(uint8_t day, uint8_t month, uint16_t year){
+    // Tomohiko Sakamoto's algorithm, returns 0=Sun ... 6=Sat
+    // shift to 1=Mon ... 7=Sun for STM32
+    static int t[] = {0,3,2,5,0,3,5,1,4,6,2,4};
+    if(month < 3) year--;
+    int w = (year + year/4 - year/100 + year/400 + t[month-1] + day) % 7;
+    // convert: 0=Sun→7, 1=Mon→1 ... 6=Sat→6
+    return w == 0 ? 7 : w;
+}
+
+void rtc_set_date(uint8_t day, uint8_t month, uint8_t year){
+	RTC->WPR = RTC_WPR_KEY_1;
+	RTC->WPR = RTC_WPR_KEY_2;
+
+	rtc_init_seq();
+	rtc_date_config(calcWeekday(day, month, year), day, month, year);
+	exit_init_seq();
+	RTC->WPR = RTC_WPR_KEY;
+}
+
+void rtc_set_time(uint8_t time_format, uint8_t hours, uint8_t mins, uint8_t secs){
+	RTC->WPR = RTC_WPR_KEY_1;
+	RTC->WPR = RTC_WPR_KEY_2;
+
+	rtc_init_seq();
+	rtc_time_config(time_format, hours, mins, secs);
+	exit_init_seq();
+	RTC->WPR = RTC_WPR_KEY;
+}
+

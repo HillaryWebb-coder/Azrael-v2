@@ -19,6 +19,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "FreeRTOS.h"
 #include "task.h"
@@ -133,13 +134,16 @@ int main(void)
 		errorHandler();
 	}
 
-//	ret = xTaskCreate(vSettingsTask, "Settings Task", configMINIMAL_STACK_SIZE * 4, NULL, 3, NULL);
-//	if(ret != pdPASS) {
-//		errorHandler();
-//	}
-//	uint8_t wr_data[5] = "hello";
-//	at_page_write(0x0000, wr_data, sizeof(wr_data));
-//	delay_ms(10);
+	ret = xTaskCreate(vSettingsTask, "Settings Task", configMINIMAL_STACK_SIZE * 3, NULL, 3, NULL);
+	if(ret != pdPASS) {
+		errorHandler();
+	}
+
+	ret = xTaskCreate(vUpdateDateTimeTask, "DateTime Task", configMINIMAL_STACK_SIZE * 2, NULL, 3, NULL);
+	if(ret != pdPASS){
+		errorHandler();
+	}
+
 
 	vTaskStartScheduler();
 
@@ -278,14 +282,14 @@ void vDisplayRTCTask(void * pvParameters){
 
 		rtc_get_dateTime(&datetime);
 
-		strftime(data.text.str, sizeof(data.text.str), "%I %M %p", &datetime);
+		strftime(data.text.str, sizeof(data.text.str), "%I: %M %p", &datetime);
 		data.x = 20;
 		data.y = 85;
 		data.text.font = &Font_11x18;
 		xQueueSend(xDisplayQueue, &data, portMAX_DELAY);
 
 		strftime(data.text.str, sizeof(data.text.str), "%A %d %B", &datetime);
-		data.x = 10;
+		data.x = (DISPLAY_WIDTH - (strlen(data.text.str) * 7)) / 2;
 		data.y = 105;
 		data.text.font = &Font_7x10;
 		xQueueSend(xDisplayQueue, &data, portMAX_DELAY);
@@ -394,7 +398,7 @@ void vMenuTask(void * pvParameters){
 				xEventGroupSetBits(xSystemFlags, PING_PONG_SCREEN);
 			}else if(menu_pos == 2){
 				xEventGroupSetBits(xSystemFlags, AIR_RACE_SCREEN);
-			} else if(menu_pos == 0) xEventGroupSetBits(xSystemFlags, SETTINGS_SCREEN);
+			} else if(menu_pos == 0) { xEventGroupSetBits(xSystemFlags, SETTINGS_SCREEN); }
 		}else if(uxBits & EXIT_PRESSED){
 			xEventGroupClearBits(xSystemFlags, MENU_SCREEN);
 			xEventGroupSetBits(xSystemFlags, HOME_SCREEN);

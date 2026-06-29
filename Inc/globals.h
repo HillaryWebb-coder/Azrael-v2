@@ -17,6 +17,7 @@
 #define GAME_OVER        (1UL << 6)
 #define AIR_RACE_SCREEN  (1UL << 7)
 #define SETTINGS_SCREEN  (1UL << 8)
+#define SET_DATETIME_SCREEN (1UL << 9)
 
 // Shared objects — defined in main.c
 extern QueueHandle_t     xDisplayQueue;

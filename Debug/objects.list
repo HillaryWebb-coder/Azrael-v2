@@ -29,6 +29,7 @@
 "./Src/sysmem.o"
 "./Src/system_stm32f4xx.o"
 "./Src/tim.o"
+"./Src/tasks/dateTimeTask.o"
 "./Src/tasks/settings.o"
 "./Src/tasks/task_air_race.o"
 "./Src/tasks/task_pingpong.o"

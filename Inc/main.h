@@ -16,6 +16,9 @@
 #define LED_STATUS_PIN 13
 #define LED_STATUS_GPIO GPIOC
 
+#define LED_BLUE_PIN 13
+#define LED_BLUE_GPIO GPIOB
+
 #define DISP_CS_PIN 4
 #define DISP_CS_GPIO GPIOA
 
